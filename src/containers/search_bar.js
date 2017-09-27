@@ -7,10 +7,15 @@ export default class SearchBar extends Component {
 
     //initilize state
     this.state = { term: "" };
+
+    //we need to "bind the context" to 'this' in order to make it work.
+    this.onInputChange = this.onInputChange.bind(this);
   }
 
   onInputChange(event) {
     console.log(event.target.value);
+    //setting state when we write in the input-group
+    this.setState({ term: event.target.value });
   }
 
   render() {
