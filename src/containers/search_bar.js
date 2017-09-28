@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/index';
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
   //setting up the state
   constructor(props) {
     super(props);
@@ -14,6 +14,8 @@ export default class SearchBar extends Component {
     //if we have a callback, that has a reference to 'this' then we need to bind
     //we need to "bind the context" to 'this' in order to make it work.
     this.onInputChange = this.onInputChange.bind(this);
+
+    this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
   onInputChange(event) {
@@ -25,6 +27,8 @@ export default class SearchBar extends Component {
     event.preventDefault();
 
     //we need to go fetch weather data.
+    this.props.fetchWeather(this.state.term);
+    this.setState({ term: "" });
   }
 
   render() {
@@ -45,3 +49,11 @@ export default class SearchBar extends Component {
     );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchWeather }, dispatch);
+}
+
+//pass in null for the first argument because mapDispatchToProps needs to be the second argument
+//first argument is for state, which we dont need there.
+export default connect(null, mapDispatchToProps)(SearchBar);
