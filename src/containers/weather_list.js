@@ -7,6 +7,7 @@ class WeatherList extends Component {
         const temps = cityData.list.map(weather => weather.main.temp);
         const humidities = cityData.list.map(weather => weather.main.humidity);
         const pressures = cityData.list.map(weather => weather.main.pressure);
+        
         return (
             <tr key={cityData.city.id} >
                 <td>{cityData.city.name}</td>
