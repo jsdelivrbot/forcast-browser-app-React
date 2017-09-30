@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Chart  from '../components/chart';
 
 class WeatherList extends Component {
+  
     renderWeather(cityData) {
         const temps = _.map(cityData.list.map(weather => weather.main.temp), (temp) => (9/5 * (temp - 273) + 32));
         const humidities = cityData.list.map(weather => weather.main.humidity);
@@ -17,6 +18,7 @@ class WeatherList extends Component {
             </tr>
         );
     }
+
     render() {
         //this.renderWeather = this.renderWeather.bind(this)
         return (
@@ -36,6 +38,7 @@ class WeatherList extends Component {
         );
     };
 }
+
 function mapStateToProps({ weather }) {//Pulls weather from props.weather
   //same as doing const weather = state.weather.
     return { weather }; //ES6 {weather } === { weather: weather}
