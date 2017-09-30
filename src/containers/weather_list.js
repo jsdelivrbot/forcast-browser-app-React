@@ -40,4 +40,5 @@ function mapStateToProps({ weather }) {//Pulls weather from props.weather
   //same as doing const weather = state.weather.
     return { weather }; //ES6 {weather } === { weather: weather}
 }
+
 export default connect(mapStateToProps)(WeatherList);
