@@ -4,7 +4,6 @@ import Chart  from '../components/chart';
 import GoogleMap from '../components/google_maps';
 
 class WeatherList extends Component {
-
     renderWeather(cityData) {
         const temps = _.map(cityData.list.map(weather => weather.main.temp), (temp) => (9/5 * (temp - 273) + 32));
         const humidities = cityData.list.map(weather => weather.main.humidity);
