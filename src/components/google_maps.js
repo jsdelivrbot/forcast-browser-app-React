@@ -8,11 +8,9 @@ class GoogleMap extends Component {
     });
 }
 
-
   render() {
     return <div ref="map" />;//use this.refs.map will refer to the html element here.
   }
 }
-
 
 export default GoogleMap;
