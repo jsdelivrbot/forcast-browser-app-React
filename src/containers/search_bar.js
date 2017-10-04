@@ -12,7 +12,6 @@ class SearchBar extends Component {
     //initilize state
     this.state = { term: "" };
 
-
     //if we have a callback, that has a reference to 'this' then we need to bind
     //we need to "bind the context" to 'this' in order to make it work.
     this.onInputChange = this.onInputChange.bind(this);
@@ -25,7 +24,6 @@ class SearchBar extends Component {
     this.setState({ term: event.target.value });
   }
 
-
   onFormSubmit(event) {
     event.preventDefault();
 
@@ -33,7 +31,6 @@ class SearchBar extends Component {
     this.props.fetchWeather(this.state.term);
     this.setState({ term: "" });
   }
-
 
   render() {
     return (
